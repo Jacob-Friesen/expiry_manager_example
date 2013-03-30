@@ -1,0 +1,19 @@
+<h1>Expiry Manager Demo</h1>
+
+<p>This app demonstrates how the expiry manager can be used for fragment caching. The sentences below are each read read from a controller method with a noticeable delay built in. Once the page is loaded they are cached, meaning the page loads much faster.</p>
+
+<ul>
+  <% @page_load_actions.each do |action| %>
+    <% cache action do %>
+      <li><%= method(action).call %>
+    <% end %>
+  <% end %>
+</ul>
+
+<p>These links use controller methods that don't do anything (except redirecting to this page), but the expiry manager recognizes when they are called. It then looks up the specific controller-action to expiry actions and expires the fragments. I know its a little contrived. This way fragment expiry is centralized to one location instead of distributed across an application (like with sweepers).</p>
+
+<ul>
+  <% @expire_actions.each do |action| %>
+    <li><%= link_to action, :action => action %> </li>
+  <% end %>
+</ul>
