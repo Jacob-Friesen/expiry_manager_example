@@ -6,7 +6,7 @@ Installation:
 =============
 Steps on Unix based systems (Windows will be very similar):
 
-1. **git clone:** git clone https://github.com/Jacob-Friesen/expiry\_manager\_example.git
+1. **git clone:** git clone https://github.com/Jacob-Friesen/expiry_manager_example.git
 2. **Install gems:** cd expiry\_manager\_example && bundle install
 3. **run it**: rails s
 
